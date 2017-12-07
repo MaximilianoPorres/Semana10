@@ -88,9 +88,9 @@ public class Persona {
     public double calcularIMC(double peso, double altura) {
 
         double pesoIdeal = 0d;
-    
-        pesoIdeal = peso/ (Math.pow(altura, 2d));
-        
+
+        pesoIdeal = peso / (Math.pow(altura, 2d));
+
         return 1;
     }
 
@@ -110,7 +110,7 @@ public class Persona {
         String sDni = String.format("%08d", aux);
         int dni = Integer.parseInt(sDni);
 
-        System.out.println("DNI = " +  dni);
+        System.out.println("DNI = " + dni);
 
         return dni;
     }

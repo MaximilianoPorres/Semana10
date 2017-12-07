@@ -10,7 +10,7 @@ package semana10;
  * @author Alumno
  */
 public class Cuenta {
-    
+
     private String titular;
     private double saldo;
 
