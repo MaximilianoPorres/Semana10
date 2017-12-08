@@ -26,16 +26,16 @@ public class Cuenta {
         this.saldo = saldo;
     }
 
-    public void ingresarDeposito(double deposito) {
+    public void ingresar(double cantidad) {
 
-        if (!(deposito < 0)) {
-            saldo += deposito;
+        if (!(cantidad < 0)) {
+            saldo += cantidad;
         }
     }
 
-    public void retirarDinero(double cantDineroRetiro) {
+    public void retirar(double cantidad) {
 
-        saldo -= cantDineroRetiro;
+        saldo -= cantidad;
 
         if (saldo < 0) {
             saldo = 0;
