@@ -11,28 +11,39 @@ package semana10;
  */
 public class Persona {
 
-    public static final char H = 'H';
-    public static final char M = 'M';
+    public static final char sexo;
     private String nombre;
     private int edad;
     private int dni;
     private double peso;
     private double altura;
 
-    public Persona() {
+    static {
+        sexo = 'H';
     }
 
-    public Persona(String nombre, int edad) {
+    public Persona() {
+        nombre = null;
+        edad = 0;
+        peso = 0d;
+        altura = 0d;
+        generarDNI();
+    }
+
+    public Persona(String nombre, int edad, char sexo) {
         this.nombre = nombre = "";
         this.edad = edad = 0;
+        comprobarSexo(sexo);
+        generarDNI();
     }
 
     public Persona(String nombre, int edad, int dni, double peso, double altura) {
-        this.nombre = nombre = "";
-        this.edad = edad = 0;
-        this.dni = dni = 0;
-        this.peso = peso = 0d;
-        this.altura = altura = 0d;
+        this.nombre = nombre;
+        this.edad = edad;
+        this.dni = dni;
+        this.peso = peso;
+        this.altura = altura;
+        generarDNI();
     }
 
     public String getNombre() {
@@ -63,14 +74,6 @@ public class Persona {
         this.edad = edad;
     }
 
-    public static char getH() {
-        return H;
-    }
-
-    public static char getM() {
-        return M;
-    }
-
     public void setPeso(double peso) {
         this.peso = peso;
     }
@@ -82,7 +85,8 @@ public class Persona {
     //Metodos
     @Override
     public String toString() {
-        return "Persona{" + "nombre=" + nombre + ", edad=" + edad + ", dni=" + dni + ", peso=" + peso + ", altura=" + altura + '}';
+        return "Nombre: " + nombre + ", sexo: " + sexo + ", edad: " + edad + ", DNI: " + dni
+                + ", peso: " + peso + "Kg, altura: " + altura + "mts";
     }
 
     public double calcularIMC(double peso, double altura) {
@@ -91,17 +95,28 @@ public class Persona {
 
         pesoIdeal = peso / (Math.pow(altura, 2d));
 
-        return 1;
+        if (pesoIdeal < 20) {
+            return -1;
+        } else if (19 < pesoIdeal && pesoIdeal < 26) {
+            return 0;
+        } else {
+            return 1;
+        }
     }
 
     public boolean esMayorDeEdad() {
 
+        if (edad >= 18) {
+            return true;
+        }
         return false;
     }
 
-    public String sexo(char sexo) {
+    private void comprobarSexo(char sexo) {
 
-        return null;
+        if (sexo != 'H' || sexo != 'M') {
+            sexo = 'H';
+        }
     }
 
     public int generarDNI() {
