@@ -14,7 +14,7 @@ import java.util.Random;
 public class Password {
 
     private int longitud;
-    private String contrasenia;
+    private String contrasenia = "";
 
     public Password() {
         longitud = 8;
