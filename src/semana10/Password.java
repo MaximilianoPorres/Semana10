@@ -45,30 +45,32 @@ public class Password {
     public boolean esFuerte() {
 
         int longitudContrasenia = contrasenia.length();
-        int num = 0;
-        int mayor = 0;
-        int menor = 0;
+        int numero = 0;
+        int mayuscula = 0;
+        int minuscula = 0;
 
         for (int i = 0; i < longitudContrasenia; i++) {
 
             char aux = contrasenia.charAt(i);
 
             if (aux > 47 && aux < 58) {
-
-                num++;
+                numero++;
             }
 
             if (aux > 64 && aux < 91) {
-
-                mayor++;
+                mayuscula++;
             }
 
             if (aux > 96 && 123 > aux) {
-                menor++;
+                minuscula++;
             }
         }
 
-        return num > 5 && mayor > 2 && menor > 1;
+        if (numero >= 5 && mayuscula >= 2 && minuscula >= 1) {
+            return true;
+        } else {
+            return false;
+        }
 
     }
 
@@ -84,21 +86,16 @@ public class Password {
 
                 aux = rand.nextInt(10);
                 contrasenia += Integer.toString(aux);
-
             }
 
             if (opcion == 1) {
-
                 aux = rand.nextInt((90 - 65) + 1) + 65;
                 contrasenia += (char) aux;
-
             }
 
             if (opcion == 2) {
-
                 aux = rand.nextInt((122 - 97) + 1) + 97;
                 contrasenia += (char) aux;
-
             }
         }
     }
